@@ -1,5 +1,5 @@
 
-public class sumOfDigits {
+public class powerDigitSum {
 
 	static int size = 1200;
 	static int[] number = new int[size];
