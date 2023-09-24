@@ -5,37 +5,33 @@ import math
 
 
 def solution(target):
-    primes = []
-
-    # find prime numbers until the square root of target
-
-    # note: this is my hacky solution because I haven't figured out how to compute the correct solution for prime
-    # factors > sqrt(target)
-    max: int
-    if (target > 100):
-        max = int(math.sqrt(target)) + 1
-    else:
-        max = target
-    is_prime = [True] * max
-    is_prime[0] = False
-    is_prime[1] = False
-    for i in range(2, max):
-        if is_prime[i]:
-            primes.append(i)
+    # Disclaimer: This solution is not complete, and just happens to work for this input. The correct solution requires
+    # accounting for prime factors > sqrt of the target which I haven't implemented yet. It isn't obvious at all unless
+    # you're great at math, and required me to search around quite a bit on the internet to learn about prime factors.
+    # Here is a good explanation: https://math.stackexchange.com/a/883184/1225364
+    # What's remaining is to find the one possible prime factor > sqrt(target), and there can only be one. This one
+    # is calculated by starting with the target, and repeatedly dividing by all other prime factors that evenly divide
+    # it, or something of the sort.
+    max = math.sqrt(target)
+    prime_factors = []
+    not_prime = {0, 1}
+    i = 2
+    while i < max:
+        if i not in not_prime:
+            if target % i == 0:
+                prime_factors.append(i)
             j = 2
             product = i * j
             while product < max:
-                is_prime[product] = False
+                not_prime.add(product)
                 j += 1
                 product = i * j
+        i += 1
 
-    # find all largest prime that is a factor:
-    while len(primes) > 0:
-        largest = primes.pop()
-        if target % largest == 0:
-            return largest
-
-    return None
+    if len(prime_factors) > 0:
+        return prime_factors[-1]
+    else:
+        return None
 
 
 print(solution(600851475143))
