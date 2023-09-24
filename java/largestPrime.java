@@ -10,6 +10,13 @@ import java.util.Stack;
  */
 
 public class largestPrime {
+	/*  Disclaimer: This solution is not complete, and just happens to work for this input. The correct solution requires
+            accounting for prime factors > sqrt of the target which I haven't implemented yet. It isn't obvious at all unless
+            you're great at math, and required me to search around quite a bit on the internet to learn about prime factors.
+            Here is a good explanation: https://math.stackexchange.com/a/883184/1225364
+            What's remaining is to find the one possible prime factor > sqrt(target), and there can only be one. This one
+            is calculated by starting with the target, and repeatedly dividing by all other prime factors that evenly divide
+            it, or something of the sort. */
 
 	static long target = 600851475143L;
 	
