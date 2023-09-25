@@ -31,7 +31,12 @@ def calculate_window_product(start: int, end: int) -> int:
 
 
 def solution(window_size):
-    # Strategy: I'll use a sliding window approach to solve this problem. There is the edge case of zero, however.
+    # Strategy: It's pretty easy to solve this by brute force for the small digit size of 13. However, we can produce
+    # a more efficient solution using the sliding window approach, which I've tested till 69 digits. It may still work
+    # past that, but I believe there are no consecutive digits in the above number over 69 length without a zero, so
+    # I wouldn't know how much further it can go. Probably forever since sliding window is O(n).
+    #
+    # Anyway, I'll use a sliding window approach to solve this problem. There is the edge case of zero, however.
     # That is, if we encounter a zero, the product of the window becomes zero by multiplication. That's fine, but when
     # the window exits the zero, the default logic would lead to a divide by zero which is meaningless. Hence, when we
     # encounter a zero, we should have the entire window skip the zero, and recalculate the window at the next non-zero
@@ -65,3 +70,4 @@ def solution(window_size):
 
 
 print(solution(13))
+print(solution(69))
