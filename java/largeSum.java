@@ -50,7 +50,7 @@ public class largeSum {
 		sum[51] = carry%10;
 		carry /= 10;
 		
-		if (carry > 9) System.out.println("FUCK!");
+		if (carry > 9) System.out.println("Uh oh...!");
 		sum[52] = carry;
 		
 		for (int u=51;u>=42;u--) System.out.print(sum[u]);
