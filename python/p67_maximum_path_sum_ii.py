@@ -106,5 +106,4 @@ hard_input = [
 ]
 
 
-# Need to change all file names to start with non-numeric :(
 print(solution(hard_input))
