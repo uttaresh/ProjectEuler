@@ -1,5 +1,4 @@
-# Same as Problem 18
-from p18_maximum_path_sum_i import solution
+# Same as Problem 18, but here I'll solve the problem iteratively from bottom up
 
 
 hard_input = [
@@ -104,6 +103,16 @@ hard_input = [
     [30, 11, 85, 31, 34, 71, 13, 48, 5, 14, 44, 3, 19, 67, 23, 73, 19, 57, 6, 90, 94, 72, 57, 69, 81, 62, 59, 68, 88, 57, 55, 69, 49, 13, 7, 87, 97, 80, 89, 5, 71, 5, 5, 26, 38, 40, 16, 62, 45, 99, 18, 38, 98, 24, 21, 26, 62, 74, 69, 4, 85, 57, 77, 35, 58, 67, 91, 79, 79, 57, 86, 28, 66, 34, 72, 51, 76, 78, 36, 95, 63, 90, 8, 78, 47, 63, 45, 31, 22, 70, 52, 48, 79, 94, 15, 77, 61, 67, 68],
     [23, 33, 44, 81, 80, 92, 93, 75, 94, 88, 23, 61, 39, 76, 22, 3, 28, 94, 32, 6, 49, 65, 41, 34, 18, 23, 8, 47, 62, 60, 3, 63, 33, 13, 80, 52, 31, 54, 73, 43, 70, 26, 16, 69, 57, 87, 83, 31, 3, 93, 70, 81, 47, 95, 77, 44, 29, 68, 39, 51, 56, 59, 63, 7, 25, 70, 7, 77, 43, 53, 64, 3, 94, 42, 95, 39, 18, 1, 66, 21, 16, 97, 20, 50, 90, 16, 70, 10, 95, 69, 29, 6, 25, 61, 41, 26, 15, 59, 63, 35],
 ]
+
+
+def solution(tree):
+    # Strategy: We'll solve this bottom to top, iteratively. I can't remember if it counts as dynamic programming or
+    # not. I think it does. I'm going to do an in-place solution because... why not?
+    depth = len(tree)
+    for row in reversed(range(depth - 1)):
+        for col in reversed(range(row + 1)):
+            tree[row][col] = tree[row][col] + max(tree[row+1][col], tree[row+1][col+1])
+    return tree[0][0]
 
 
 print(solution(hard_input))

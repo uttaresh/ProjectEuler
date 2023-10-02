@@ -28,6 +28,7 @@ def solution(tree):
     # to traverse all possible paths. To avoid re-computation, we need to use a caching based solution to solve it
     # recursively. There is probably a 2D dynamic programming solution that can do it faster, but I haven't practiced
     # DP in a while to be good enough to find it right now.
+    # Update: I've used the iterative (possibly DP soln) in Prob 67.
     depth = len(tree)
     cache = [[None for i in range(depth)] for j in range(depth)]
 
