@@ -1,5 +1,5 @@
 # Same as Problem 18
-import importlib
+from p18_maximum_path_sum_i import solution
 
 
 hard_input = [
@@ -107,5 +107,4 @@ hard_input = [
 
 
 # Need to change all file names to start with non-numeric :(
-problem18 = importlib.import_module('18-maximum_path_sum_i')
-print(problem18.solution(hard_input))
+print(solution(hard_input))
